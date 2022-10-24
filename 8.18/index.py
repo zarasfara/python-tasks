@@ -5,18 +5,26 @@
 """
 import re
 
-document = open('f.txt', 'r', encoding='utf-8').readlines()
+document = open('f.txt', 'r+', encoding='utf-8')
 second_document = open('g.txt', 'w', encoding='utf-8')
-
-# shalom = re.sub(r'\s+', ' ', document).split(' ')
-# document[document.index(row)] = re.sub(r'\s+', ' ', document[document.index(row)])
 
 q = []
 for row in document:
     q += re.split(r'\s+', row)
-q.remove('')
+
+for row in q:
+
+    if row == '':
+        q.remove('')
+
+    if len(row) == 1:
+        q.remove(row)
 
 c = ' '.join(str(e) for e in q)
-# for x in q:
-    # if len(x) == 1:
+
 second_document.write(c)
+
+"""
+chelovek orange  orange a stupid b kind test mobile rea tesla
+wer rew человек
+"""

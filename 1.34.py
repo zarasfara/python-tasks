@@ -15,12 +15,15 @@ while N > 40:
 for i in range(1, N + 1):
 
     # Выводим на итерации i
-    print(i)
+    print("Делители числа", i, ":", end=" ")
 
     j = 1
     # цикл
-    while j <= i:
+    for j in range(1, i + 1):
         # проверяем что число делится без остатка
         if i % j == 0:
-            print("\t", j)
+            if j == i:
+                print(j)
+            else:
+                print(j, end=', ')
         j += 1
