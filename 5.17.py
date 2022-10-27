@@ -5,25 +5,33 @@
  Для нахождения НОД использовать функцию
 
 """
-import math
+
+# list_of_tuples = [(50, 130), (2, 95), (3, 93)]
+
+list_of_tuples = []
+
+count_numbers = int(input("Введите количество пар чисел: "))
+
+for x in range(count_numbers):
+    w = []
+    for y in range(1, 3):
+        w.append(int(input(f"Введите {y}-ое число: ")))
+    list_of_tuples.append(tuple(w))
 
 
 def gcd(a, b):
+    print(f"НОД Чисел {a} и {b} равно", end=" ", )
+
     # Пока а и b не равно 0
     while a != 0 and b != 0:
         if a > b:
-            # В а записываем остаток деления а на б
+            # В переменную а записываем остаток деления а на б
             a %= b
         else:
-            # В б записываем остаток деления б на а
+            # В переменную б записываем остаток деления б на а
             b %= a
     print(a + b)
 
 
-list_of_tuples = [(50, 130), (2, 95), (3, 93)]
-
 for x in list_of_tuples:
     gcd(x[0], x[1])
-
-# for x in list_of_tuples:
-#     print(math.gcd(x[0], x[1]))

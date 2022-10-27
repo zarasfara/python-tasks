@@ -5,24 +5,11 @@
 """
 import re
 
-document = open('f.txt', 'r+', encoding='utf-8')
+document = open('f.txt', 'r', encoding='utf-8').read()
 second_document = open('g.txt', 'w', encoding='utf-8')
 
-q = []
-for row in document:
-    q += re.split(r'\s+', row)
-
-for row in q:
-
-    if row == '':
-        q.remove('')
-
-    if len(row) == 1:
-        q.remove(row)
-
-c = ' '.join(str(e) for e in q)
-
-second_document.write(c)
+for line in document.split('\n'):
+    second_document.write(' '.join(filter(lambda x: len(x) != 1, line.split())) + ' \n')
 
 """
 chelovek orange  orange a stupid b kind test mobile rea tesla
