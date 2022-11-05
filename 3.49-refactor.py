@@ -8,22 +8,31 @@
 """
 import random
 
-n = 2
+# Вводим n
+n = int(input("Введите число: "))
+
+# Проверка на то что число должно быть меньше 2
+while n > 2:
+    print("Число N должно быть меньше либо равно 40")
+    n = int(input("Введите N: "))
+
+
 source_list = []
-counter = 0
-# Ввод списка
+quantity = 0
+
+# Заполнение списка
 for x in range(n):
     child_list = []
     for y in range(n):
         child_list.append(random.randint(0, 200))
     source_list.append(child_list)
 
-print("Исходный список = ", source_list)
+print("Список = ", source_list)
 
-# Проверяем дочерние элементы
+# Проверяем элементы дочерних списков
 for x in source_list:
     for y in x:
         # Берем у двузначного числа сумму левой и правой и проверяем что сумма равна нулю
         if y < 100 and ((y // 10) + (y % 10)) % 2 == 0:
-            counter += 1
-print("количество всех двухзначных чисел, у которых сумма цифр кратна 2 = ", counter)
+            quantity += 1
+print("количество всех двухзначных чисел, у которых сумма цифр кратна 2 =", quantity)
