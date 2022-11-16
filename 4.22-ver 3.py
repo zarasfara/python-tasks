@@ -14,15 +14,7 @@
     А потом случайно его заполнять или явно указывать кто был у кого
 """
 
-kate = ('Катя', {
-    'Женя',
-    'Миша'
-})
-
-petya = ('Петя', {
-    'Женя',
-    'Андрей'
-})
+a = [('kate', {'женя', 'миша', 'вадим'}), ('p', {'миша', 'вадим'})]
 
 count_students = int(input("Введите количество учеников: "))
 students = []
@@ -31,10 +23,9 @@ for student in range(count_students):
     student_name = input("Введите имя: ")
     students.append(student_name)
 
-
 students = set(students)
 
-intersection_students = students.intersection(kate[1], petya[1])
+intersection_students = students.intersection(a[0][1], a[1][1])  # пересечение множеств
 
 if len(intersection_students) != 0:
     for student in intersection_students:
