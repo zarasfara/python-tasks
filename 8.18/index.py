@@ -6,31 +6,20 @@
 # Ввод слов/символов в файл руками
 # Проверка на то что ничего не ввели
 
-import re
-
 # Открываем на запись
 second_document = open('g.txt', 'w', encoding='utf-8')
 
-with open('f.txt', 'w+', encoding='utf-8') as f:
+with open('f.txt', 'w', encoding='utf-8') as f:
     # вводим слова
     words = input("Введите слова через пробел: ")
 
-    # Если что-то ввели
-    if len(words) != 0:
-        # сплитим строку по пробелам любой длинной
-        for line in re.split("\s+", words):
+    if len(words) == 0:
+        print("Вы ничего не ввели")
+        exit()
 
-            # Если длина слова равна 1 - пропускаем
-            if len(line) == 1:
-                continue
-
-            # Запись в файл
-            f.write(line + ' ')
-    else:
-        print("Ничего не ввели")
+    f.write(' '.join(filter(lambda x: len(x) != 1, words.split())).strip())
 
 with open('f.txt', 'r', encoding='utf-8') as f:
-    # Разделяем и читаем строку по переносам строки
-    for line in f.read().split('\n'):
-        a = second_document.write(' '.join(filter(lambda x: len(x) != 1, line.split())) + '\n')
-        print(a)
+
+    for line in f.read():
+        second_document.write(line)

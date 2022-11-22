@@ -14,16 +14,6 @@ print("Изначальный список ", sourceList)
 
 # Берем элементы с элемента 0 по 4
 first_new_list = sourceList[0:4]
+sourceList = sorted(sourceList[0:4]) + sourceList[4:6] + sorted(sourceList[6:10], reverse=True)
 
-# Берем элементы с элемента 7 по 10
-second_new_list = sourceList[6:10]
-# Сортировка
-first_new_list.sort()
-second_new_list.sort(reverse=True)
-
-# Удаляем у исходного списка элементы
-del sourceList[0:4]
-del sourceList[2:6]
-
-# Объединяем списки
-print("Список после преобразования ", first_new_list + sourceList + second_new_list)
+print("Изменённый список ", sourceList)
