@@ -9,17 +9,19 @@
 # Открываем на запись
 second_document = open('g.txt', 'w', encoding='utf-8')
 
+# Заполнение первого файла
 with open('f.txt', 'w', encoding='utf-8') as f:
-    # вводим слова
+    # Ввод слов
     words = input("Введите слова через пробел: ")
 
+    # Валидация на то, что ничего не было введено
     if len(words) == 0:
         print("Вы ничего не ввели")
         exit()
 
+    # Запись в файл
     f.write(' '.join(filter(lambda x: len(x) != 1, words.split())).strip())
 
-with open('f.txt', 'r', encoding='utf-8') as f:
-
-    for line in f.read():
-        second_document.write(line)
+# Заполнение второго файла
+for line in open('f.txt', 'r', encoding='utf-8').read():
+    second_document.write(line)
