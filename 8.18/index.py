@@ -20,8 +20,11 @@ with open('f.txt', 'w', encoding='utf-8') as f:
         exit()
 
     # Запись в файл
-    f.write(' '.join(filter(lambda x: len(x) != 1, words.split())).strip())
+    f.write(words)
 
 # Заполнение второго файла
-for line in open('f.txt', 'r', encoding='utf-8').read():
-    second_document.write(line)
+for line in open('f.txt', 'r', encoding='utf-8').read().split():
+
+    if len(line) == 1: continue
+
+    second_document.write(line + ' ')
